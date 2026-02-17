@@ -62,42 +62,45 @@ const HowItWorksSection = () => {
             animate={isInView ? "visible" : "hidden"}
             className="grid grid-cols-1 md:grid-cols-5 gap-6 relative z-10"
           >
-            {steps.map((s, i) => (
-              <motion.div
-                key={s.num}
-                variants={itemVariants}
-                className="group relative"
-              >
-                {/* Glass Card */}
-                <div className="relative h-48 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6 flex flex-col items-center justify-center text-center overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-primary/10">
-                  
-                  {/* Big Watermark Number */}
-                  <span className="absolute -top-4 -right-4 text-8xl font-bold text-white/5 select-none transition-colors group-hover:text-white/10">
-                    {s.num}
-                  </span>
+           {steps.map((s, i) => (
+  <motion.div
+    key={s.num}
+    variants={itemVariants}
+    initial="hidden"
+    animate="visible"
+    className="group relative"
+  >
+    {/* Glass Card */}
+    <div className="relative h-48 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6 flex flex-col items-center justify-center text-center overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-primary/10">
+      
+      {/* Big Watermark Number */}
+      <span className="absolute -top-4 -right-4 text-8xl font-bold text-white/5 select-none transition-colors group-hover:text-white/10">
+        {s.num}
+      </span>
 
-                  {/* Icon/Dot Indicator */}
-                  <div className="w-3 h-3 rounded-full bg-gradient-to-r from-primary to-purple-500 mb-6 shadow-[0_0_10px_rgba(255,255,255,0.5)] z-20 relative">
-                     <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-75" />
-                  </div>
+      {/* Icon/Dot Indicator */}
+      <div className="w-3 h-3 rounded-full bg-gradient-to-r from-primary to-purple-500 mb-6 shadow-[0_0_10px_rgba(255,255,255,0.5)] z-20 relative">
+        <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-75" />
+      </div>
 
-                  {/* Content */}
-                  <h3 className="text-lg font-bold text-white relative z-10 mb-2">
-                    {s.title}
-                  </h3>
-                  <p className="text-sm text-gray-400 font-light relative z-10 leading-snug">
-                    {s.desc}
-                  </p>
-                </div>
+      {/* Content */}
+      <h3 className="text-lg font-bold text-white relative z-10 mb-2">
+        {s.title}
+      </h3>
+      <p className="text-sm text-gray-400 font-light relative z-10 leading-snug">
+        {s.desc}
+      </p>
+    </div>
 
-                {/* Mobile Connector Arrow (Hidden on Desktop) */}
-                {i < steps.length - 1 && (
-                  <div className="flex md:hidden justify-center py-4 text-white/20">
-                    <ArrowRight className="transform rotate-90" />
-                  </div>
-                )}
-              </motion.div>
-            ))}
+    {/* Mobile Connector Arrow (Hidden on Desktop) */}
+    {i < steps.length - 1 && (
+      <div className="flex md:hidden justify-center py-4 text-white/20">
+        <ArrowRight className="rotate-90" />
+      </div>
+    )}
+  </motion.div>
+))}
+
           </motion.div>
         </div>
 
