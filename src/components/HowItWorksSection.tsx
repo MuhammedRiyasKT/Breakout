@@ -42,11 +42,11 @@ const HowItWorksSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-gray-400 tracking-widest uppercase mb-4 backdrop-blur-md">
+          <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-primary/80 tracking-widest uppercase mb-4 backdrop-blur-md">
             The Process
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-            Path to <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Mastery</span>
+            Path to <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">Mastery</span>
           </h2>
         </motion.div>
 

@@ -5,6 +5,8 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SocialIcons from "@/components/SocialIcons";
+
 
 const sections = [
   {
@@ -159,6 +161,7 @@ const Terms = () => {
         </div>
       </div>
       <Footer />
+      <SocialIcons />
     </div>
   );
 };

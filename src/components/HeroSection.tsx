@@ -6,7 +6,7 @@ import heroTrader from "@/assets/hero-trader.png";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#0a0a0a] pt-20">
-      
+
       {/* --- Ambient Background Glows --- */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-red-600/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen" />
@@ -16,7 +16,7 @@ const HeroSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
-          
+
           {/* --- LEFT CONTENT --- */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -55,7 +55,7 @@ const HeroSection = () => {
                 Book Free Intro Call
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              
+
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-medium text-white bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl hover:bg-white/10 transition-all duration-300"
@@ -84,19 +84,21 @@ const HeroSection = () => {
           >
             {/* The Main Glass Container */}
             <div className="relative w-full max-w-md aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm shadow-2xl">
-              
+
               {/* Inner Glow */}
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-black/20 to-black/80 z-10" />
-              
+
               {/* Image */}
               <img
                 src={heroTrader}
                 alt="Stock Market Mentor"
+                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover object-top opacity-90 hover:scale-105 transition-transform duration-700 ease-in-out"
               />
 
+
               {/* Floating Glass Widget 1: NISM Badge */}
-              <motion.div 
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6 }}
@@ -112,19 +114,19 @@ const HeroSection = () => {
               </motion.div>
 
               {/* Floating Glass Widget 2: Top Right Tag */}
-              <motion.div 
-                 initial={{ y: -20, opacity: 0 }}
-                 animate={{ y: 0, opacity: 1 }}
-                 transition={{ delay: 0.8 }}
-                 className="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1 rounded-lg"
+              <motion.div
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                className="absolute top-6 right-6 z-20 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1 rounded-lg"
               >
-                 <span className="text-xs font-medium text-white">Mentor Mode</span>
+                <span className="text-xs font-medium text-white">Mentor Mode</span>
               </motion.div>
             </div>
 
             {/* Decorative background circle behind image */}
             <div className="absolute -z-10 w-[120%] h-[80%] bg-gradient-to-r from-red-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30" />
-            
+
           </motion.div>
         </div>
       </div>

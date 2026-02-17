@@ -7,6 +7,7 @@ import WhatYouLearnSection from "@/components/WhatYouLearnSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import DisclaimerSection from "@/components/DisclaimerSection";
 import CTASection from "@/components/CTASection";
+import SocialIcons from "@/components/SocialIcons";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <HowItWorksSection />
       <DisclaimerSection />
       <CTASection />
+      <SocialIcons />
       <Footer />
     </div>
   );

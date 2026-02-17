@@ -78,11 +78,11 @@ const WhySection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-purple-300 tracking-wider uppercase mb-4 backdrop-blur-sm">
+          <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-primary/80 tracking-wider uppercase mb-4 backdrop-blur-sm">
             The Difference
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">
-            Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Breakout Academy</span>?
+            Why Breakout<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60"> Academy ?</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light">
             Most academies sell courses. We build disciplined traders through personalized mentorship.

@@ -4,6 +4,7 @@ import { Mail, Phone, AlertTriangle, Send, MessageSquare, ArrowUpRight } from "l
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
+import SocialIcons from "@/components/SocialIcons";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -237,6 +238,7 @@ const Contact = () => {
         </div>
       </div>
       <Footer />
+      <SocialIcons />
     </div>
   );
 };
