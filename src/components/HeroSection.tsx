@@ -11,11 +11,29 @@ const HeroSection = () => {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Image - shown first on mobile, second on desktop */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            className="flex lg:hidden justify-center relative order-1"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-2xl" />
+              <img
+                src={heroTrader}
+                alt="Professional stock market mentor"
+                className="w-full max-w-xs rounded-2xl"
+              />
+            </div>
+          </motion.div>
+
           {/* Left content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
+            className="order-2 lg:order-1"
           >
             <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-6 border border-primary/20">
               One-to-One Training
@@ -55,7 +73,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="hidden lg:flex justify-center relative"
+            className="hidden lg:flex justify-center relative order-2"
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent rounded-2xl" />
