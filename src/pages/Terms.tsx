@@ -1,159 +1,163 @@
 import { motion } from "framer-motion";
-import { Shield, BookOpen, AlertTriangle, CreditCard, Users, Lock, Monitor, Scale, Eye, FileText, Gavel } from "lucide-react";
+import { 
+  Shield, BookOpen, AlertTriangle, CreditCard, Users, 
+  Lock, Monitor, Scale, Eye, FileText, Gavel, CheckCircle2 
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const sections = [
   {
     icon: BookOpen,
-    title: "1. Educational Purpose Only",
-    content:
-      "Breakout Academy provides stock market training strictly for educational purposes. We are not SEBI-registered and do not provide investment advice, stock tips, or portfolio management services.",
+    title: "Educational Purpose Only",
+    content: "Breakout Academy provides stock market training strictly for educational purposes. We are not SEBI-registered and do not provide investment advice, stock tips, or portfolio management services."
   },
   {
     icon: CreditCard,
-    title: "2. No Refund Policy",
-    content:
-      "All payments made to Breakout Academy are non-refundable under any circumstances. This includes, but is not limited to: difficulty understanding the content, teaching style preference, missed classes or sessions, and live trading sessions. The academy incurs fixed operational expenses, and 50% of the fee is paid to the mentor. Therefore, refunds are not possible.",
+    title: "No Refund Policy",
+    content: "All payments made to Breakout Academy are non-refundable under any circumstances. This includes difficulty understanding content, teaching style preference, or missed sessions. As 50% of the fee is paid to the mentor immediately, refunds are not possible."
   },
   {
     icon: Users,
-    title: "3. Learning Support",
-    content:
-      "Mentors will assist students until they understand the topic. If required, a mentor change can be requested at no additional cost.",
+    title: "Learning Support",
+    content: "Mentors will assist students until they understand the topic. If required, a mentor change can be requested at no additional cost to ensure your learning continuity."
   },
   {
     icon: AlertTriangle,
-    title: "4. No Guarantee of Profits",
-    content:
-      "Trading involves high risk. Breakout Academy does not guarantee profits or successful trading results. All trades and decisions are made at the student's own risk.",
+    title: "No Guarantee of Profits",
+    content: "Trading involves high risk. Breakout Academy does not guarantee profits or successful trading results. All trades and decisions are made at the student's own risk."
   },
   {
     icon: Shield,
-    title: "5. Third-Party Account Handling",
-    content:
-      "If a student allows any third party (mentor, staff, or others) access to their trading account, it is entirely their own responsibility. Breakout Academy is not liable for any loss or actions taken.",
+    title: "Third-Party Account Handling",
+    content: "If a student allows any third party (mentor, staff, or others) access to their trading account, it is entirely their own responsibility. Breakout Academy is not liable for any loss."
   },
   {
     icon: Lock,
-    title: "6. Authorized Payments Only",
-    content:
-      "Payments must be made only through official Breakout Academy payment methods. The academy is not responsible for money paid to unauthorized individuals or third parties without written approval.",
+    title: "Authorized Payments Only",
+    content: "Payments must be made only through official Breakout Academy payment methods. The academy is not responsible for money paid to unauthorized individuals or third parties without written approval."
   },
   {
     icon: Monitor,
-    title: "7. Online Classes & Attendance",
-    content:
-      "All classes are conducted online. Regular attendance is expected. Missed sessions do not qualify for refunds.",
+    title: "Online Classes & Attendance",
+    content: "All classes are conducted online. Regular attendance is expected. Missed sessions due to student negligence do not qualify for refunds or indefinite rescheduling."
   },
   {
     icon: Scale,
-    title: "8. Code of Conduct",
-    content:
-      "The following are strictly prohibited: sharing trading tips, abusive or disrespectful behavior, copyright or content violations. Violation of these rules will result in immediate removal without refund.",
+    title: "Code of Conduct",
+    content: "Prohibited actions: sharing trading tips, abusive behavior, copyright violations. Violation results in immediate removal without refund."
   },
   {
     icon: Eye,
-    title: "9. Privacy & Data",
-    content:
-      "We collect minimal personal information for communication and payment purposes. Breakout Academy does not sell or misuse personal data.",
+    title: "Privacy & Data",
+    content: "We collect minimal personal information for communication and payment purposes only. Breakout Academy does not sell or misuse personal data."
   },
   {
     icon: FileText,
-    title: "10. Intellectual Property",
-    content:
-      "All course materials are the intellectual property of Breakout Academy. Sharing, copying, recording, or reselling content without permission is prohibited.",
+    title: "Intellectual Property",
+    content: "All course materials are the intellectual property of Breakout Academy. Sharing, copying, recording, or reselling content without permission is strictly prohibited."
   },
   {
     icon: Gavel,
-    title: "11. Governing Law",
-    content:
-      "These Terms & Conditions are governed by Indian law. Any disputes shall fall under Indian jurisdiction.",
-  },
+    title: "Governing Law",
+    content: "These Terms & Conditions are governed by Indian law. Any disputes shall fall under Indian jurisdiction."
+  }
 ];
 
 const Terms = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-neutral-950 relative selection:bg-primary/30 selection:text-white">
       <Navbar />
 
-      {/* Hero banner */}
-      <section className="bg-hero-dark pt-28 pb-16 px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute top-1/2 right-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
-        <div className="max-w-3xl mx-auto relative z-10">
+      {/* --- Ambient Background --- */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] opacity-30" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] opacity-30" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+      </div>
+
+      <div className="relative z-10 pt-32 pb-24 px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          
+          {/* --- Hero Header --- */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center mb-20"
           >
-            <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-5 border border-primary/20">
-              Legal
+            <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-gray-400 tracking-widest uppercase mb-6 backdrop-blur-md">
+              Legal Documentation
             </span>
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-dark-surface-foreground mb-3">
-              Terms & <span className="text-gradient-red">Conditions</span>
+            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+              Terms & <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Conditions</span>
             </h1>
-            <p className="text-dark-surface-foreground/60 text-sm md:text-base max-w-lg mx-auto">
-              Breakout Academy — Please read carefully before enrolling.
+            <p className="text-gray-400 text-lg max-w-xl mx-auto font-light leading-relaxed">
+              Please read these terms carefully before enrolling. By proceeding, you agree to our policies.
             </p>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Content */}
-      <div className="py-16 px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto space-y-5">
-          {sections.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <motion.div
-                key={s.title}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="group rounded-xl border border-border bg-card p-5 md:p-6 hover:border-primary/30 hover:shadow-md transition-all duration-300"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                    <Icon size={18} />
+          {/* --- Terms List --- */}
+          <div className="space-y-6">
+            {sections.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.03] backdrop-blur-md p-6 md:p-8 hover:bg-white/[0.06] hover:border-white/10 transition-all duration-300"
+                >
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative flex items-start gap-6">
+                    <div className="hidden sm:flex shrink-0 w-12 h-12 rounded-xl bg-white/5 border border-white/10 items-center justify-center text-gray-400 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                      <Icon size={20} />
+                    </div>
+                    
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-xs font-bold text-white/20">0{i + 1}</span>
+                        <h2 className="text-lg font-semibold text-white group-hover:text-primary transition-colors">
+                          {s.title}
+                        </h2>
+                      </div>
+                      <p className="text-sm md:text-base text-gray-400 leading-relaxed font-light">
+                        {s.content}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h2 className="font-display font-semibold text-base md:text-lg text-card-foreground mb-2">
-                      {s.title}
-                    </h2>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {s.content}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+                </motion.div>
+              );
+            })}
+          </div>
 
-          {/* Final Consent */}
+          {/* --- Final Consent Box --- */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="mt-10 rounded-xl bg-primary/5 border-2 border-primary/20 p-6 md:p-8"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8 }}
+            className="mt-16 relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-b from-primary/10 to-transparent backdrop-blur-xl p-8 text-center"
           >
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/15 flex items-center justify-center text-primary">
-                <Shield size={20} />
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-lg text-foreground mb-2">
-                  Final Consent
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  By enrolling or making a payment, you confirm that you have read, understood, and agreed to these Terms & Conditions. For any clarification, contact official support before enrolling.
-                </p>
-              </div>
-            </div>
+             {/* Glow behind the box */}
+             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+             
+             <div className="flex justify-center mb-4">
+               <div className="p-3 bg-primary/20 rounded-full text-primary animate-pulse">
+                 <CheckCircle2 size={32} />
+               </div>
+             </div>
+             
+             <h3 className="text-xl font-bold text-white mb-3">Acknowledgment</h3>
+             <p className="text-gray-400 text-sm leading-relaxed max-w-2xl mx-auto">
+               By enrolling in Breakout Academy or making a payment, you explicitly confirm that you have read, understood, and agreed to these Terms & Conditions.
+             </p>
           </motion.div>
+
         </div>
       </div>
-
       <Footer />
     </div>
   );

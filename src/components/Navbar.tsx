@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
 const Navbar = () => {
@@ -26,84 +26,112 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${
-        scrolled ? "shadow-lg border-b border-gray-200" : "shadow-sm"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
+        scrolled
+          ? "bg-neutral-950/80 backdrop-blur-xl border-white/5 shadow-2xl py-2"
+          : "bg-transparent border-transparent py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between">
           
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img
-              src={logo}
-              alt="Breakout Academy"
-              className="h-16 md:h-20 w-auto rounded"
-            />
-          </Link>
+          {/* --- LOGO --- */}
+          <Link to="/" className="flex items-center gap-3 relative z-50 group">
+  <div className="relative overflow-hidden rounded-lg">
+    <img
+      src={logo}
+      alt="Breakout Academy"
+      className="h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+    />
+    {/* Subtle sheen over logo */}
+    <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+  </div>
+</Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+
+
+
+          {/* --- DESKTOP NAV --- */}
+          <div className="hidden md:flex items-center gap-10">
             {links.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`text-sm font-medium transition-colors ${
+                className={`relative text-sm font-medium tracking-wide transition-colors duration-300 ${
                   location.pathname === link.to
-                    ? "text-red-600"
-                    : "text-gray-700 hover:text-red-600"
+                    ? "text-white"
+                    : "text-gray-400 hover:text-white"
                 }`}
               >
                 {link.label}
+                {/* Minimalist Dot Indicator for Active State */}
+                {location.pathname === link.to && (
+                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full shadow-[0_0_8px_currentColor]" />
+                )}
               </Link>
             ))}
 
             <Link
               to="/contact"
-              className="bg-red-600 text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-red-700 transition-colors"
+              className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 text-sm font-bold text-black bg-white rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105"
             >
-              Book Free Call
+              <span className="relative z-10 flex items-center gap-2">
+                Book Free Call
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </span>
+              {/* Button Hover Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-300 opacity-0 group-hover:opacity-100 transition-opacity" />
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* --- MOBILE TOGGLE --- */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-800 p-2"
+            className="md:hidden text-white p-2 relative z-50 hover:bg-white/10 rounded-full transition-colors"
             aria-label="Toggle menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 shadow-md">
-          <div className="px-6 py-4 space-y-3">
-            {links.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`block py-2 text-sm font-medium ${
-                  location.pathname === link.to
-                    ? "text-red-600"
-                    : "text-gray-700 hover:text-red-600"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+      {/* --- MOBILE MENU OVERLAY --- */}
+      <div
+        className={`fixed inset-0 bg-neutral-950/95 backdrop-blur-2xl z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-500 ease-in-out md:hidden ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+        }`}
+      >
+        {/* Background decoration */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
 
+        <div className="relative z-10 flex flex-col items-center gap-8 w-full px-6">
+          {links.map((link, idx) => (
             <Link
-              to="/contact"
-              className="block bg-red-600 text-white px-5 py-2.5 rounded-md text-sm font-semibold text-center hover:bg-red-700 transition-colors"
+              key={link.to}
+              to={link.to}
+              onClick={() => setIsOpen(false)}
+              className={`text-2xl font-light tracking-wider transition-all duration-300 ${
+                location.pathname === link.to
+                  ? "text-white font-semibold scale-110"
+                  : "text-gray-500 hover:text-gray-300"
+              }`}
+              style={{ transitionDelay: `${idx * 100}ms` }}
             >
-              Book Free Call
+              {link.label}
             </Link>
-          </div>
+          ))}
+          
+          <div className="w-16 h-px bg-white/10 my-4" />
+
+          <Link
+            to="/contact"
+            onClick={() => setIsOpen(false)}
+            className="w-full max-w-xs bg-white text-black py-4 rounded-xl text-center text-lg font-bold shadow-xl hover:bg-gray-200 transition-colors"
+          >
+            Book Free Call
+          </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
