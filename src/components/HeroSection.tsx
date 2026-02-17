@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, TrendingUp } from "lucide-react";
-import heroTrader from "@/assets/hero-trader.png";
+import heroTrader from "@/assets/hero-trader.webp";
 
 const HeroSection = () => {
   return (
