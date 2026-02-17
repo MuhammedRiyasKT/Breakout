@@ -12,10 +12,30 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+
+  plugins: [
+    react(),
+    mode === "development" && componentTagger(),
+  ].filter(Boolean),
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+
+  /* ✅ ADD THIS SECTION */
+  build: {
+    chunkSizeWarningLimit: 600, // optional (increase warning limit)
+
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          reactVendor: ["react", "react-dom"],
+          router: ["react-router-dom"],
+          query: ["@tanstack/react-query"],
+        },
+      },
     },
   },
 }));
